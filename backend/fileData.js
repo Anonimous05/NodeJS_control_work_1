@@ -65,15 +65,18 @@ module.exports = {
     },
     async deleteItem(item) {
         const index = data.findIndex(index => index.id === item.id);
+        const comments = answers.filter(id => id.commentTo !== item.id);
+        answers = comments;
         await data.splice(index, 1);
         await deleteFile(item.image);
         await this.save();
+        await this.saveComments();
     },
     async findComments(newsId) {
         return answers.find(id => id.id === newsId);
     },
     async filterComments(newsId) {
-        return answers.filter(id => id.commentTo === newsId)
+        return answers.filter(id => id.commentTo === newsId);
     },
     async save() {
         const fileContents = JSON.stringify(data, null, 2);

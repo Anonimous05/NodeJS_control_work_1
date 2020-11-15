@@ -9,7 +9,8 @@ import {toast, ToastContainer} from "react-toastify";
 class Comments extends Component {
 
     state = {
-        commentId: this.props.match.params.id,
+        commentId: this.props.match.params.commentId,
+        newsId: this.props.match.params.newsId,
         comment: {},
         modal: false,
         answer: "",
@@ -60,6 +61,7 @@ class Comments extends Component {
                 answerTo:this.state.commentId,
                 author: this.state.user.userName,
                 answer: this.state.answer,
+                commentTo: this.state.newsId,
             };
             axiosAPI.post('/comments',answer);
             this.fetchAnswers();
@@ -93,7 +95,7 @@ class Comments extends Component {
                 {this.state.answers !== null ? Object.keys(this.state.answers).map(answer => (
                     <div className="answer_block" key={answer}>
                         <p className="author">{this.state.answers[answer].author}</p>
-                        <a href={`/comment/${this.state.answers[answer].id}`} className="answer">
+                        <a href={`/comment/${this.state.newsId}/${this.state.answers[answer].id}`} className="answer">
                             {this.state.answers[answer].answer}
                         </a>
                     </div>

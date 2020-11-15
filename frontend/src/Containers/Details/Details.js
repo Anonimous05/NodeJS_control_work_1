@@ -49,7 +49,7 @@ class Details extends Component {
         if(this.state.comment !== ''){
             const comment = {
                 author: this.state.user.userName,
-                answer: this.state.answer
+                answer: this.state.answer,
             };
             axiosAPI.post(`/news/${this.state.id}`,comment);
             this.setState({modal: false});
@@ -107,7 +107,9 @@ class Details extends Component {
                                     Object.keys(this.state.comments).map(com => (
                                         <div className="comment_block" key={com}>
                                             <p className="author">{this.state.comments[com].author}</p>
-                                            <NavLink to={`/comment/${this.state.comments[com].id}`} className="comment">{this.state.comments[com].answer}</NavLink>
+                                            <NavLink to={`/comment/${this.state.id}/${this.state.comments[com].id}`} className="comment">
+                                                {this.state.comments[com].answer}
+                                            </NavLink>
                                         </div>
                                     ))
                                 ) : (

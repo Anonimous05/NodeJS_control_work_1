@@ -35,11 +35,16 @@ class Home extends Component {
     deleteNews = (id) => {
         try {
             axiosAPI.delete(`/news/${id}`);
-            toast.success("Новость удалена!");
             this.fetchUserNews();
+            toast.success("Новость удалена!");
         }catch (error) {
             toast.error(error);
         }
+    };
+
+    logoutUser = () => {
+      localStorage.clear();
+      this.props.history.push('/');
     };
 
     render() {
@@ -48,6 +53,7 @@ class Home extends Component {
             <div className="HomeContainer">
                 <ToastContainer/>
                 <Header/>
+                <button className="logout" onClick={this.logoutUser}>выйти</button>
                 <div className="user_info">
                     <p className="author">Имя: {this.state.user.userName}</p>
                     <p className="email">eMail: {this.state.user.userEmail}</p>

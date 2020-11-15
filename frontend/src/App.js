@@ -18,7 +18,7 @@ class App extends Component {
                     <Route path="/addNews" component={AddNews}/>
                     <Route path="/details/:id" component={Details}/>
                     <Route path="/home" component={Home}/>
-                    <Route path="/comment/:id" component={Comments}/>
+                    <Route path="/comment/:newsId/:commentId" component={Comments}/>
                 </Switch>
             </div>
         );
