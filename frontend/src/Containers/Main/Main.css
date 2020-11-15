@@ -1,0 +1,23 @@
+.news_block:first-child {
+    margin-top: 50px;
+}
+.news_block {
+    width: 80%;
+    text-align: center;
+    margin-left: 10%;
+    height: 50px;
+    padding-top: 20px;
+    border: 2px solid black;
+    margin-top: 20px;
+}
+.news_block a {
+    color: black;
+    transition: all 0.3s;
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 18px;
+}
+.news_block a:hover {
+    color: chocolate;
+    text-decoration: underline;
+}

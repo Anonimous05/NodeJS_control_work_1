@@ -1,0 +1,11 @@
+.user_info {
+    width: 80%;
+    background: #242b2e;
+    color: white;
+    font-family: sans-serif;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-around;
+    margin-left: 10%;
+    margin-top: 20px;
+}
